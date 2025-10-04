@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased gradient-bg min-h-screen`}
       >
         <Header />
-        <main>
+        <main className="pt-4">
           {children}
         </main>
         <ToastProvider />
