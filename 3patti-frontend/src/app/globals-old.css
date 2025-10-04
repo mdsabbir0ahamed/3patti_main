@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #232733;
+  }
+  
+  body {
+    @apply bg-slate-900 text-slate-100 font-inter;
+    background: #0b0c0f;
+    background-image: radial-gradient(circle at 50% 50%, rgba(120, 50, 200, 0.1) 0%, transparent 50%);
+  }
+  
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .header {
+    @apply sticky top-0 z-50 backdrop-blur-md border-b px-4 md:px-6 py-4;
+    background: linear-gradient(135deg, rgba(20, 23, 29, 0.95) 0%, rgba(24, 27, 34, 0.95) 100%);
+    border-color: #232733;
+  }
+  
+  .vip-badge {
+    @apply absolute -top-1 -right-1 bg-gradient-to-r from-gold to-goldLight;
+    @apply text-bg text-xs px-2 py-0.5 rounded-full font-semibold;
+    @apply border border-gold/60 shadow-soft;
+    box-shadow: 0 0 8px rgba(245, 192, 68, 0.4);
+  }
+  
+  .balances {
+    @apply flex items-center gap-6;
+  }
+  
+  .balance {
+    @apply flex items-center gap-2;
+  }
+  
+  .balance-label {
+    @apply text-textDim text-sm font-medium;
+  }
+  
+  .balance-value {
+    @apply text-text font-manrope font-semibold text-lg tabular-nums;
+  }
+  
+  .icon-btn {
+    @apply w-9 h-9 rounded-lg bg-panel2 border border-border;
+    @apply flex items-center justify-center text-textDim hover:text-text;
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-hard;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus;
+  }
+  
+  .marquee {
+    @apply bg-panel/60 backdrop-blur-sm rounded-xl p-3 border border-border/50;
+    @apply overflow-hidden;
+  }
+  
+  .marquee-text {
+    @apply animate-marquee whitespace-nowrap text-textDim text-sm;
+  }
+  
+  .panel {
+    @apply bg-panel/80 backdrop-blur-md border border-border shadow-soft;
+    background: linear-gradient(135deg, rgba(20, 23, 29, 0.8) 0%, rgba(24, 27, 34, 0.8) 100%);
+  }
+  
+  .refer-card {
+    @apply grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 p-6 rounded-xl overflow-hidden relative;
+    @apply border border-border/50;
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F97316 100%);
+  }
+  
+  .refer-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-30;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.6) 50%, transparent 70%);
+    @apply animate-shine;
+  }
+  
+  .refer-title {
+    @apply text-white text-2xl font-manrope font-bold mb-2;
+  }
+  
+  .refer-subtitle {
+    @apply text-goldLight text-3xl font-manrope font-bold mb-4;
+    text-shadow: 0 2px 8px rgba(255, 215, 106, 0.5);
+  }
+  
+  .refer-chips {
+    @apply flex gap-2 mb-4;
+  }
+  
+  .chip {
+    @apply bg-panel/30 backdrop-blur-sm border border-white/20;
+    @apply px-3 py-1.5 rounded-full text-white text-sm font-semibold;
+  }
+  
+  .btn {
+    @apply bg-gradient-to-r from-emerald to-emeraldLight;
+    @apply border border-emerald/40 text-white px-6 py-3 rounded-lg;
+    @apply font-manrope font-semibold transition-all duration-200;
+    @apply hover:-translate-y-0.5 hover:shadow-hard;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus;
+  }
+  
+  .grid-games {
+    @apply grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4;
+  }
+  
+  .game-card {
+    @apply panel rounded-xl overflow-hidden transition-all duration-300;
+    @apply hover:-translate-y-0.5 hover:shadow-hard cursor-pointer;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus;
+  }
+  
+  .game-top {
+    @apply h-28 overflow-hidden;
+  }
+  
+  .game-meta {
+    @apply p-4;
+  }
+  
+  .game-title {
+    @apply text-text font-manrope font-bold text-lg mb-1;
+  }
+  
+  .game-id {
+    @apply text-textDim text-sm mb-2;
+  }
+  
+  .game-count {
+    @apply flex items-center gap-1 text-emeraldLight text-sm font-medium;
+  }
+  
+  .bottom-actions {
+    @apply fixed bottom-0 left-0 right-0 z-40;
+    @apply bg-panel/95 backdrop-blur-md border-t border-border;
+    @apply px-4 py-3;
+  }
+  
+  .actions-grid {
+    @apply grid grid-cols-3 sm:grid-cols-6 gap-2;
+  }
+  
+  .action-chip {
+    @apply flex flex-col items-center gap-1 p-2 rounded-lg;
+    @apply bg-panel border border-border transition-all duration-200;
+    @apply hover:-translate-y-0.5 hover:shadow-hard cursor-pointer;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus;
+  }
+  
+  .action-icon {
+    @apply w-7 h-7 rounded-md bg-panel2 flex items-center justify-center;
+  }
+  
+  .action-label {
+    @apply text-textDim text-xs font-semibold;
+  }
+  
+  .add-cash-btn {
+    @apply bg-gradient-to-r from-gold to-goldLight;
+    @apply text-bg px-4 py-3 rounded-lg font-manrope font-bold;
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-hard;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus;
+  }
+  
+  .modal {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  }
+  
+  .modal-backdrop {
+    @apply absolute inset-0 bg-bg/60 backdrop-blur-sm;
+  }
+  
+  .modal-card {
+    @apply panel rounded-xl p-6 max-w-md w-full relative z-10;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    .animate-shine {
+      animation: none;
+    }
+  }
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation for notifications */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(234, 179, 8, 0.8), 0 0 40px rgba(234, 179, 8, 0.4);
+    transform: scale(1.02);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Enhanced glassmorphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Shimmer effect for skeleton loader */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Shine animation for refer card */
+@keyframes shine {
+  0% { 
+    transform: translateX(-100%) skewX(-12deg); 
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% { 
+    transform: translateX(200%) skewX(-12deg); 
+    opacity: 0;
+  }
+}
+
+.animate-shine {
+  animation: shine 4s ease-in-out infinite;
+}
+
+/* Focus styles for accessibility */
+.focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Button press animation */
+@keyframes press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.animate-press:active {
+  animation: press 0.1s ease-in-out;
+}
+
+/* Pulse glow animation for Add Cash button */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(34, 197, 94, 0.5), 0 0 10px rgba(34, 197, 94, 0.3), 0 0 15px rgba(34, 197, 94, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.6), 0 0 30px rgba(34, 197, 94, 0.4);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}

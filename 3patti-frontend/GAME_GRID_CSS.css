@@ -1,0 +1,330 @@
+/* Responsive GameGrid CSS Classes - Add to design-system.css */
+
+/* ===============================================
+   RESPONSIVE GAME GRID
+   =============================================== */
+
+/* Game Grid Container */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Tablet and Desktop: 3 columns */
+@media (min-width: 768px) {
+  .game-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Large Desktop: Maintain 3 columns with larger gaps */
+@media (min-width: 1024px) {
+  .game-grid {
+    gap: 24px;
+  }
+}
+
+/* Game Card */
+.game-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, 
+    rgba(20, 23, 29, 0.95) 0%, 
+    rgba(24, 27, 34, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 300ms var(--easing-smooth);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  height: 100%;
+  min-height: 220px;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hard), 0 0 20px rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.game-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-focus);
+  transform: translateY(-2px);
+}
+
+.game-card:active {
+  transform: translateY(-1px);
+}
+
+/* Game Thumbnail Area - Fixed 112px Height */
+.game-thumbnail {
+  height: 112px;
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.game-thumbnail-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.game-thumbnail-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.game-thumbnail-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.game-thumbnail-title {
+  font-family: var(--font-manrope);
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Individual Game Thumbnails */
+.game-thumbnail-teen-patti {
+  background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+}
+
+.game-thumbnail-jack-tp {
+  background: linear-gradient(135deg, #DC2626 0%, #EC4899 100%);
+}
+
+.game-thumbnail-rummy {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+}
+
+.game-thumbnail-andar-bahar {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+/* Game Meta Section */
+.game-meta {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+/* Game Title */
+.game-title {
+  color: var(--color-text);
+  font-family: var(--font-manrope);
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .game-title {
+    font-size: 16px;
+  }
+}
+
+/* Game ID - Dim Text */
+.game-id {
+  color: var(--color-text-dim);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .game-id {
+    font-size: 13px;
+  }
+}
+
+/* Player Count - Green */
+.game-player-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-emerald-light);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  margin-top: auto;
+}
+
+@media (max-width: 640px) {
+  .game-player-count {
+    font-size: 13px;
+  }
+}
+
+.game-player-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.game-player-number {
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* Hover Glow Effect */
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.05) 0%, 
+    rgba(52, 211, 153, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 300ms var(--easing-smooth);
+  pointer-events: none;
+  border-radius: var(--radius-xl);
+}
+
+.game-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Loading State */
+.game-card.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.game-card.loading .game-thumbnail-content {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 640px) {
+  .game-grid {
+    gap: 12px;
+  }
+  
+  .game-card {
+    min-height: 200px;
+  }
+  
+  .game-thumbnail {
+    height: 96px;
+  }
+  
+  .game-thumbnail-icon {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+  
+  .game-thumbnail-title {
+    font-size: 12px;
+  }
+  
+  .game-meta {
+    padding: 12px;
+    gap: 6px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .game-grid {
+    gap: 10px;
+  }
+  
+  .game-card {
+    min-height: 180px;
+  }
+  
+  .game-thumbnail {
+    height: 80px;
+  }
+  
+  .game-thumbnail-icon {
+    font-size: 24px;
+  }
+  
+  .game-meta {
+    padding: 10px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .game-card {
+    border-width: 2px;
+  }
+  
+  .game-card:hover {
+    border-color: var(--color-emerald);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .game-card {
+    transition: none;
+  }
+  
+  .game-card:hover {
+    transform: none;
+  }
+  
+  .game-card.loading .game-thumbnail-content {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .game-grid {
+    display: block;
+  }
+  
+  .game-card {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    box-shadow: none;
+    border: 2px solid var(--color-border);
+  }
+  
+  .game-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

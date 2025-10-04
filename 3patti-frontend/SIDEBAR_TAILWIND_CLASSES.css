@@ -1,0 +1,56 @@
+/* Tailwind Classes Reference for Sidebar Components */
+
+/* Layout Classes */
+.dashboard-layout          /* flex min-h-screen bg-[var(--color-bg)] */
+.sidebar                   /* fixed top-0 left-0 w-60 h-full bg-gradient-to-b from-panel/98 to-panel-2/98 backdrop-blur-2xl border-r border-border z-50 overflow-y-auto transition-transform duration-300 ease-out */
+.sidebar-open              /* translate-x-0 */
+.main-content              /* flex-1 flex flex-col min-h-screen md:ml-60 */
+
+/* Sidebar Content Classes */
+.sidebar-content           /* p-6 pb-4 flex flex-col gap-6 h-full */
+.sidebar-logo              /* flex items-center gap-3 p-2 px-3 mb-2 */
+.sidebar-logo-icon         /* w-8 h-8 rounded-lg bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-lg text-bg font-bold */
+.sidebar-logo-text         /* text-text font-manrope text-lg font-bold */
+
+/* Search Input Classes */
+.search-input-container    /* relative mb-2 */
+.search-input              /* w-full bg-panel-2 border border-border rounded-lg text-text text-sm py-2.5 px-3 pl-10 transition-all duration-200 ease-out placeholder:text-text-dim focus:outline-none focus:border-emerald focus:shadow-[0_0_0_2px_rgba(34,197,94,0.2)] focus-visible:shadow-[0_0_0_2px_var(--color-focus)] */
+.search-icon               /* absolute left-3 top-1/2 -translate-y-1/2 text-text-dim text-base pointer-events-none */
+
+/* Navigation Classes */
+.sidebar-section           /* flex flex-col gap-1 */
+.sidebar-section-header    /* text-text-dim text-xs font-semibold uppercase tracking-wide py-2 px-3 mb-1 */
+.sidebar-link              /* flex items-center gap-3 text-text text-sm font-medium py-2.5 px-3 rounded-lg no-underline relative transition-all duration-200 ease-out border-l-3 border-transparent hover:bg-panel-2 hover:text-gold hover:translate-x-0.5 focus-visible:outline-none focus-visible:shadow-[0_0_0_2px_var(--color-focus)] */
+.sidebar-link-icon         /* text-base flex-shrink-0 w-5 text-center */
+.sidebar-active            /* bg-emerald/10 text-emerald-light font-semibold border-l-emerald hover:text-emerald-light hover:bg-emerald/15 */
+
+/* Mobile Classes */
+.sidebar-overlay           /* fixed inset-0 bg-bg/80 backdrop-blur-sm z-40 opacity-0 transition-opacity duration-300 ease-out pointer-events-none md:hidden */
+.sidebar-overlay-visible   /* opacity-100 pointer-events-auto */
+.hamburger-btn             /* flex items-center justify-center w-10 h-10 bg-panel-2 border border-border rounded-lg text-text cursor-pointer transition-all duration-200 ease-out hover:bg-panel hover:text-gold hover:-translate-y-0.5 focus-visible:outline-none focus-visible:shadow-[0_0_0_2px_var(--color-focus)] md:hidden */
+
+/* Mobile Responsive Overrides */
+@media (max-width: 767px) {
+  .sidebar                 /* -translate-x-full */
+  .sidebar-open            /* translate-x-0 */
+}
+
+@media (min-width: 768px) {
+  .sidebar                 /* relative translate-x-0 */
+  .main-content            /* ml-60 */
+  .hamburger-btn           /* hidden */
+  .sidebar-overlay         /* hidden */
+}
+
+/* Utility Classes for Scrollbar */
+.sidebar::-webkit-scrollbar           /* w-1.5 */
+.sidebar::-webkit-scrollbar-track     /* bg-panel */
+.sidebar::-webkit-scrollbar-thumb     /* bg-border rounded-sm hover:bg-text-dim */
+
+/* Reduced Motion Classes */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar-overlay,
+  .sidebar-link            /* transition-none */
+  .sidebar-link:hover      /* transform-none */
+}
